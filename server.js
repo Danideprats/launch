@@ -14,7 +14,7 @@ app.use(express.json());
 // Configure CORS to allow requests from your website's domain
 // In a production environment, you should be specific about the allowed origins
 const corsOptions = {
-    origin: 'https://www.consciousnessfactory.com',
+    origin: ['https://www.consciousnessfactory.com', 'https://consciousnessfactory.com'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
