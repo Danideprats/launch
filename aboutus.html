@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Us - Collective Consciousness Healing</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* === Basic Reset & Font === */
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    background: #f4f7fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* === Navigation Bar === */
+  nav {
+    background-color: #007bff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  /* Dropdown Menu Styles */
+  nav ul li.dropdown {
+    position: relative;
+  }
+  nav ul li.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #007bff;
+    padding: 10px 0;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    min-width: 180px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+  nav ul li.dropdown:hover .dropdown-content {
+    display: block;
+  }
+  nav ul li.dropdown .dropdown-content li {
+    display: block;
+  }
+  nav ul li.dropdown .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    white-space: nowrap;
+  }
+  nav ul li.dropdown .dropdown-content a:hover {
+    background-color: #0056b3;
+  }
+  /* Glow effect for Discovery Space */
+  .glow-link {
+      position: relative;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  .glow-link:hover {
+      color: #00f7ff;
+      text-shadow:
+          0 0 5px #00f7ff,
+          0 0 10px #00f7ff,
+          0 0 15px #00f7ff,
+          0 0 20px #00f7ff;
+  }
+  /* Circles for nav links */
+  .circle {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-left: 6px;
+      vertical-align: middle;
+      transition: box-shadow 0.3s ease;
+  }
+  .yellow-circle { background-color: #ffff00; }
+  .yellow-circle:hover { box-shadow: 0 0 10px 4px #ffff00; }
+  .pink-circle { background-color: #ff69b4; }
+  .pink-circle:hover { box-shadow: 0 0 10px 4px #ff69b4; }
+  .green-circle { background-color: #0f0; }
+  .green-circle:hover { box-shadow: 0 0 10px 4px #0f0; }
+  .purple-circle { background-color: #b266ff; }
+  .purple-circle:hover { box-shadow: 0 0 10px 4px #b266ff; }
+
+
+  /* === Header === */
+  header {
+    position: relative;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/5d1f7bf5a554fa00013cf74d/1568139829258-739AMFZCGQEKNYNLZ9RB/spiritual+energy+healing');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    overflow: hidden;
+  }
+  .header-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  .header-content p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .button { /* General button style, used for header button */
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff; /* Blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
+  }
+
+  /* === Progress Bar (NEW) === */
+  .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px auto; /* Centered with margin */
+      padding: 0 10px; /* Reduced padding for more compactness */
+      width: 80%; /* Adjusted width to make steps closer */
+      max-width: 600px; /* Adjusted max-width for more compactness */
+  }
+  .progress-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      flex: 1;
+  }
+  .progress-step::before {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      border: 2px solid #ccc;
+      z-index: 1;
+      margin-bottom: 8px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .progress-step.active::before {
+      background-color: #007bff; /* Blue */
+      border-color: #007bff; /* Blue */
+  }
+  .progress-step.completed::before {
+      background-color: #007bff; /* Blue */
+      border-color: #007bff; /* Blue */
+      content: '✓';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.2em;
+  }
+  .progress-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #e0e0e0;
+      top: 17px; /* Align with middle of circle */
+      left: 50%;
+      transform: translateX(0%);
+      z-index: 0;
+  }
+  .progress-step:not(:first-child)::after {
+      left: -50%;
+      width: 100%;
+      transform: translateX(0%);
+      transition: background-color 0.3s ease;
+  }
+  .progress-step.completed + .progress-step::after {
+      background-color: #007bff; /* Line becomes blue */
+  }
+  .progress-step-label {
+      font-size: 0.9em;
+      color: #777;
+      text-align: center;
+  }
+  .progress-step.active .progress-step-label {
+      color: #007bff; /* Blue */
+      font-weight: 600;
+  }
+  .progress-step.completed .progress-step-label {
+      color: #555;
+  }
+
+  /* Main container */
+  main {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 0 15px;
+    flex-grow: 1; /* Allows main content to expand */
+  }
+  /* Important alert style */
+  .important-alert {
+    background-color: #fff6d5;
+    border-left: 5px solid #ffc107;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-weight: 600;
+  }
+  /* Footer */
+  footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: auto; /* Pushes footer to the bottom */
+  }
+  .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+  }
+  .social-links li {
+    display: inline;
+    margin: 0 10px;
+  }
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .newsletter-form {
+    margin-top: 20px;
+  }
+  .newsletter-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    margin-top: 10px;
+  }
+  .newsletter-form button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .newsletter-form button:hover {
+    background-color: #0056b3; /* Darker blue */
+  }
+
+  /* Neon Glow for highlighted letters */
+  .cluster-glow {
+    color: #ff69b4;
+    font-weight: bold;
+    text-shadow:
+      0 0 5px #ff69b4,
+      0 0 10px #ff69b4,
+      0 0 15px #ff69b4,
+      0 0 20px #ff69b4;
+  }
+
+  /* Specific Glows for Growth Pillars */
+  /* These are kept for potential future use or if other parts of the site use them,
+     even though the explicit spans in step1 are removed. */
+  .glow-spiritism {
+    color: #8000ff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: text-shadow 0.4s ease;
+  }
+  .glow-spiritism:hover {
+    text-shadow:
+      0 0 5px #a64dff,
+      0 0 10px #b366ff,
+      0 0 20px #cc99ff;
+  }
+  .glow-mindset {
+    color: #ff69b4;
+    font-weight: bold;
+    cursor: pointer;
+    transition: text-shadow 0.4s ease;
+  }
+  .glow-mindset:hover {
+    text-shadow:
+      0 0 5px #ff85c1,
+      0 0 10px #ff99cc,
+      0 0 20px #ffb3d9;
+  }
+  .glow-lifestyle {
+    color: #32cd32;
+    font-weight: bold;
+    cursor: pointer;
+    transition: text-shadow 0.4s ease;
+  }
+  .glow-lifestyle:hover {
+    text-shadow:
+      0 0 5px #66ff66,
+      0 0 10px #80ff80,
+      0 0 20px #99ff99;
+  }
+  .glow-you {
+    color: #ffd700;
+    font-weight: bold;
+    cursor: pointer;
+    transition: text-shadow 0.4s ease;
+  }
+  .glow-you:hover {
+    text-shadow:
+      0 0 5px #ffe066,
+      0 0 10px #ffec99,
+      0 0 20px #fff5cc;
+  }
+
+  /* Steps container */
+  .step-section {
+    display: none;
+    margin-bottom: 40px;
+  }
+  .step-section.active {
+    display: block;
+  }
+
+  /* Step navigation buttons */
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    gap: 15px; /* Added a gap for spacing between buttons */
+  }
+  .step-nav button {
+    background-color: #007bff; /* Blue buttons */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    flex: 1; /* This is the key change to make them the same size */
+    max-width: 200px; /* Optional: Set a max-width to prevent them from getting too wide on large screens */
+  }
+  .step-nav button:disabled {
+    background-color: #ccc;
+    cursor: default;
+  }
+  .step-nav button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  /* === Category Cards (NEW) === */
+  .category-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em; /* Spacing between cards */
+      justify-content: center;
+      margin: 2.5em 0; /* Margin above and below the cards */
+  }
+
+  .category-card {
+      cursor: default; /* Not interactive for selection here */
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #aaa;
+      position: relative;
+      display: flex; /* Use flexbox to center content */
+      flex-direction: column; /* Stack content vertically if needed */
+      align-items: center; /* Center horizontally */
+      justify-content: center; /* Center vertically */
+      user-select: none;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      overflow: hidden;
+      font-weight: 700; /* Make text bold */
+      font-size: 1.1em; /* Adjust font size */
+      color: #333; /* Default text color */
+      background: var(--card-background, linear-gradient(135deg, #f0f0f0, #e0e0e0));
+      --glow-color-subtle: rgba(0,0,0,0.2);
+      --glow-color-hover: #007bff; /* Default blue glow for hover */
+  }
+
+  .category-card:hover {
+      box-shadow: 0 0 22px 6px var(--glow-color-hover);
+      background: var(--card-background-hover, #e6f0ff); /* Light blue background on hover */
+  }
+  .category-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 0 15px var(--glow-color-subtle);
+      z-index: -1;
+      transition: box-shadow 0.3s ease;
+  }
+  .category-card:hover::after {
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 0 0 25px var(--glow-color-hover);
+  }
+
+  /* Specific Category Card Colors (matching existing glow colors) */
+  .spiritism-card {
+      background: linear-gradient(135deg, #E6E6FF, #CCCCFF); /* Light purple */
+      color: #483D8B;
+      --glow-color-subtle: rgba(138,43,226,0.5); --glow-color-hover: #8A2BE2; /* Purple glow */
+  }
+  .mindset-card-bg { /* Renamed to avoid conflict with .glow-mindset */
+      background: linear-gradient(135deg, #FFE6F0, #FFC0CB); /* Light pink */
+      color: #C71585;
+      --glow-color-subtle: rgba(255,105,180,0.5); --glow-color-hover: #FF69B4; /* Pink glow */
+  }
+  .lifestyle-card {
+      background: linear-gradient(135deg, #E6FFE6, #C8F0C8); /* Light green */
+      color: #2E8B57;
+      --glow-color-subtle: rgba(144,238,144,0.5); --glow-color-hover: #90EE90; /* Green glow */
+  }
+  .you-card {
+      background: linear-gradient(135deg, #FFFDD0, #FFECB3); /* Light yellow */
+      color: #7A5230;
+      --glow-color-subtle: rgba(255,215,0,0.5); --glow-color-hover: #FFD700; /* Yellow glow */
+  }
+
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      padding: 10px 15px;
+    }
+    nav ul {
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    nav ul li a {
+      font-size: 14px;
+      padding: 5px 10px;
+    }
+    nav ul li.dropdown .dropdown-content {
+      min-width: unset;
+      width: 100%;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    header {
+      padding: 60px 15px;
+    }
+    .header-content h1 {
+      font-size: 32px;
+    }
+    .header-content p {
+      font-size: 16px;
+    }
+    main {
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+    .step-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .step-nav button {
+      width: 100%;
+      max-width: 250px;
+    }
+    footer {
+      padding: 20px 15px;
+    }
+    .newsletter-form input[type="email"] {
+      width: 100%;
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+    .newsletter-form button {
+      width: 100%;
+      max-width: 250px;
+    }
+    /* Responsive for Progress Bar */
+    .progress-bar {
+        width: 95%;
+        margin-top: 1.5em;
+        flex-wrap: wrap; /* Allow progress bar items to wrap */
+    }
+    .progress-step-label {
+        font-size: 0.7em;
+        margin-top: 5px;
+    }
+    .progress-step::before { /* Adjust circle size for smaller screens */
+        width: 20px;
+        height: 20px;
+        top: 12px; /* Adjust top to keep line centered */
+    }
+    .progress-step:not(:last-child)::after,
+    .progress-step:not(:first-child)::after {
+        top: 12px; /* Adjust top to keep line centered */
+    }
+    /* Responsive for Category Cards */
+    .category-card {
+        width: 100px;
+        height: 100px;
+        padding: 8px;
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="logo">C.C. Healing</div>
+    <ul>
+
+      <li><a href="launch.html">⌂</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <h1>About Us</h1>
+      <p>Empower your intentions through collective consciousness.</p>
+    </div>
+  </header>
+
+  <ul class="progress-bar" aria-label="Current step progress">
+      <li class="progress-step" id="progress-step-1">
+          <span class="progress-step-label">Factory</span>
+      </li>
+      <li class="progress-step" id="progress-step-2">
+          <span class="progress-step-label">Crisis</span>
+      </li>
+      <li class="progress-step" id="progress-step-3">
+          <span class="progress-step-label">Journey</span>
+      </li>
+      <li class="progress-step" id="progress-step-4">
+          <span class="progress-step-label">Wholeness</span>
+      </li>
+  </ul>
+
+  <main>
+    <section id="step1" class="step-section active" aria-label="Step 1: The Factory of Consciousness">
+      <h2>1. The Factory of Consciousness</h2>
+      <p>Welcome to the <strong>Factory of Consciousness</strong>! This is a vibrant space where your inner world truly shapes your outer reality. We believe in guiding you towards genuine liberation and well-being, starting with a simple yet powerful idea: recognizing and gently letting go of the old 'programming' we've all picked up from society and past experiences. Awakening your consciousness is key to breaking free from limiting beliefs and truly expanding who you are.</p>
+      <p>Think of it like this: negative thoughts can often build into deep-seated limiting beliefs, which then stir up difficult emotions, leading to behaviors we don't want. It's a bit of a cycle, right? And it can feel like we're stuck. But the good news is, to break free, we just need to learn how to 'unhook' from those unhelpful thought patterns.</p>
+      <p>The Factory of Consciousness is here to empower you on this journey, built on three core pillars that will support your amazing transformation: <span class="glow-mindset">Mindset</span>, <span class="glow-spiritism">Spiritism</span>,  and <span class="glow-lifestyle">Lifestyle</span>.
+
+      <div class="category-cards-container">
+         
+      </div>
+    </section>
+
+    <section id="step2" class="step-section" aria-label="Step 2: The Holistic Healing Approach - Initial Crisis">
+      <h2>2. The Holistic Healing Approach: Initial Crisis</h2>
+      <p>Hello, I’m Dani. Originally from Spain, I spent many years in Barcelona as a financial auditor before moving to Canada. My professional journey took unexpected turns, leading me to work in the medical sector reviewing documents for people battling illnesses. However, my own health crisis changed everything.</p>
+      <p>Everything began with a severe flare-up that landed me in the hospital for an entire month. During this time, I lost 20&nbsp;kg as my body struggled to cope. That same year, I was diagnosed with two autoimmune diseases and attention deficit disorder (ADD). Managing these conditions required a complex treatment regimen — including injections every two weeks, corticosteroids, and other immunosuppressants to protect my liver.</p>
+      <div class="important-alert" id="important-alert">⚠️ Important: Throughout my healing process, I remained committed to my prescribed medication, understanding its critical role in managing my conditions.</div>
+      <p>My doctor explained that autoimmune disorders often stem from a combination of environmental triggers, genetic predispositions, and dietary influences. These factors were always present in my mind, and I came to understand that healing the soul required more than just addressing physical symptoms — it needed a holistic approach.</p>
+    </section>
+
+    <section id="step3" class="step-section" aria-label="Step 3: The Deepening Journey & Emotional Reckoning">
+      <h2>3. The Deepening Journey & Emotional Reckoning</h2>
+      <p>Shortly after my autoimmune disease diagnosis, my ex-wife asked for a separation. This event crashed my soul completely, and my ego disappeared entirely. I had to collect those little pieces, one by one. Immense thoughts and emotions went through my head and soul.</p>
+      <p>In response, I sought therapy, including group therapy called ACT (Acceptance and Commitment Therapy). This approach significantly helped me to navigate my healing process by understanding my emotions, thoughts, and behaviors. It was through this profound experience that the foundations of Collective Consciousness Healing (CCH) began to take shape.</p>
+      <p>I began incorporating <span class="glow-spiritism">Spiritism</span> into my daily routine, seeking comfort beyond the physical realm. I shifted my <span class="glow-mindset">Mindset</span> to embrace positivity, meditation, and visualization, practices that deeply influenced my wellbeing. Alongside this, I adjusted my <span class="glow-lifestyle">Lifestyle</span> — adopting healthier habits and routines that supported my healing.</p>
+    </section>
+
+    <section id="step4" class="step-section" aria-label="Step 4: Embracing Wholeness & Collective Consciousness">
+      <h2>4. Embracing Wholeness & Collective Consciousness</h2>
+      <p>This experience taught me a profound lesson: true healing is multifaceted. It requires balance between physical health, emotional wellbeing, spiritual growth, and meaningful relationships. Healing is about restoring harmony within yourself and with those around you.</p>
+      <p>I am not a medical doctor — I am an economist and a seeker on a personal path of healing and transformation. Through sharing my journey and the wisdom I’ve gained, I hope to offer support and inspiration to others navigating their own challenges. Guided by ancestral teachings and spiritual insights, I aim to foster a community where healing transcends the physical and blossoms into a full, purposeful life.</p>
+      <p>Join me in embracing a holistic approach — one that honors your body, nurtures your soul, and strengthens your bonds with others. Together, we create the <span class="glow-you">You</span> that can shine brightly in the collective consciousness.</p>
+      <a href="index.html" class="button">Start Your Journey</a>
+    </section>
+
+  </main>
+
+  <div class="step-nav" role="navigation" aria-label="Step navigation">
+    <button id="prevBtn" disabled aria-disabled="true" aria-label="Previous Step">Previous</button>
+    <button id="nextBtn" aria-label="Next Step">Next</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Collective Consciousness Healing. All rights reserved.</p>
+    <form class="newsletter-form" aria-label="Newsletter subscription form">
+      <label for="email">Subscribe to our newsletter:</label><br />
+      <input type="email" id="email" name="email" placeholder="Your email" required aria-required="true" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+
+<script>
+  // Step Navigation Logic
+  const steps = Array.from(document.querySelectorAll('.step-section'));
+  const progressSteps = Array.from(document.querySelectorAll('.progress-step')); // Get progress steps
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i === index);
+    });
+    // Update buttons
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === steps.length - 1;
+    prevBtn.setAttribute('aria-disabled', prevBtn.disabled);
+    nextBtn.setAttribute('aria-disabled', nextBtn.disabled);
+
+    // Update Progress Bar (NEW)
+    progressSteps.forEach((indicator, i) => {
+        indicator.classList.remove('active', 'completed');
+        if (i < index) {
+            indicator.classList.add('completed');
+        } else if (i === index) {
+            indicator.classList.add('active');
+        }
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  // Initialize
+  showStep(currentStep);
+
+  // Glowing Word Animation - Only toggling classes on spans (existing)
+  function toggleGlow() {
+    document.querySelectorAll('.glow-spiritism').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-mindset').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-lifestyle').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-you').forEach(el => el.classList.toggle('active-glow'));
+  }
+</script>
+</body>
+</html>
+
+
+
+
