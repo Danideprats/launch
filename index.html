@@ -399,7 +399,7 @@
 
       // The server endpoint that will receive the data
       // This URL needs to match the POST endpoint in your server.js file
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com'; 
+      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email'; 
 
       // Send the email data to your server
       fetch(serverEndpoint, {
@@ -430,7 +430,7 @@
     document.getElementById('feedback-form').addEventListener('submit', function(event) {
       event.preventDefault();
       const feedback = document.getElementById('feedback-input').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com';
+      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-feedback';
       fetch(serverEndpoint, {
           method: 'POST',
           headers: {
@@ -457,7 +457,7 @@
     document.getElementById('newsletter-form').addEventListener('submit', function(event) {
       event.preventDefault();
       const email = document.getElementById('newsletter-email').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com';
+      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
       fetch(serverEndpoint, {
           method: 'POST',
           headers: {
