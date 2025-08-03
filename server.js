@@ -1,4 +1,4 @@
-// Import the necessary modules
+/ Import the necessary modules
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // Create an Express application
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Use Render's port or default to 3000 for local development
 
 // Middleware to parse JSON bodies from incoming requests
 app.use(express.json());
@@ -55,5 +55,5 @@ app.post('/submit-feedback', (req, res) => {
 
 // Start the server and listen on the specified port
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+    console.log(`Server listening on port ${port}`);
 });
