@@ -28,21 +28,17 @@ app.post('/', (req, res) => {
 // A POST route to handle email submissions
 app.post('/submit-email', (req, res) => {
     const { email, form } = req.body;
-    const timestamp = new Date().toISOString();
-    const data = `Timestamp: ${timestamp}, Email: ${email}, Form: ${form}\n`;
-
+    
     // In a production environment, you would save this to a database.
     // For this demonstration, we'll log it to the console.
-    console.log(`New email submitted: ${email}`);
+    console.log(`New email submitted: ${email}, Form: ${form}`);
     res.status(200).json({ success: true, message: 'Email submitted successfully!' });
 });
 
 // A POST route to handle feedback submissions
 app.post('/submit-feedback', (req, res) => {
     const { feedback } = req.body;
-    const timestamp = new Date().toISOString();
-    const data = `Timestamp: ${timestamp}, Feedback: ${feedback}\n`;
-
+    
     // In a production environment, you would save this to a database.
     // For this demonstration, we'll log it to the console.
     console.log(`New feedback submitted: ${feedback}`);
