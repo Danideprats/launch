@@ -415,11 +415,6 @@
         }
         return response.json();
       })
-      .then(data => {
-        // Handle success response from the server
-        alert('Thank you for subscribing!');
-        console.log('Success:', data);
-      })
       .catch((error) => {
         // Handle errors if the server request fails
         console.error('Error:', error);
