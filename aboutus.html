@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -587,7 +585,7 @@
       <h2>1. Consciousness Factory</h2>
       <p>Welcome to the <strong>Consciousness Factory</strong>! This is a vibrant space where your inner world truly shapes your outer reality. We believe in guiding you towards genuine liberation and well-being, starting with a simple yet powerful idea: recognizing and gently letting go of the old 'programming' we've all picked up from society and past experiences. Awakening your consciousness is key to breaking free from limiting beliefs and truly expanding who you are.</p>
       <p>Think of it like this: negative thoughts can often build into deep-seated limiting beliefs, which then stir up difficult emotions, leading to behaviors we don't want. It's a bit of a cycle, right? And it can feel like we're stuck. But the good news is, to break free, we just need to learn how to 'unhook' from those unhelpful thought patterns.</p>
-      <p>The Factory of Consciousness is here to empower you on this journey, built on three core pillars that will support your amazing transformation: <span class="glow-mindset">Mindset</span>, <span class="glow-spiritism">Spiritism</span>,  and <span class="glow-lifestyle">Lifestyle</span>.
+      <p>The Factory of Consciousness is here to empower you on this journey, built on three core pillars that will support your amazing transformation: <span class="glow-mindset">Mindset</span>, <span class="glow-spiritism">Spiritism</span>,  and <span class="glow-lifestyle">Lifestyle</span>.
 
       <div class="category-cards-container">
          
@@ -634,99 +632,62 @@
   </footer>
 
 <script>
-    document.getElementById('email-form').addEventListener('submit', function(event) {
-      // Prevent the form from submitting normally
-      event.preventDefault();
+  // Step Navigation Logic
+  const steps = Array.from(document.querySelectorAll('.step-section'));
+  const progressSteps = Array.from(document.querySelectorAll('.progress-step')); // Get progress steps
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentStep = 0;
 
-      // Get the email value from the input field
-      const email = document.getElementById('email-input').value;
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i === index);
+    });
+    // Update buttons
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === steps.length - 1;
+    prevBtn.setAttribute('aria-disabled', prevBtn.disabled);
+    nextBtn.setAttribute('aria-disabled', nextBtn.disabled);
 
-      // The server endpoint that will receive the data
-      // This URL needs to match the POST endpoint in your server.js file
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email'; 
-
-      // Send the email data to your server
-      fetch(serverEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, form: 'prelaunch' }),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    // Update Progress Bar (NEW)
+    progressSteps.forEach((indicator, i) => {
+        indicator.classList.remove('active', 'completed');
+        if (i < index) {
+            indicator.classList.add('completed');
+        } else if (i === index) {
+            indicator.classList.add('active');
         }
-        return response.json();
-      })
-      .then(data => {
-        // Handle success response from the server
-        alert('Thank you for subscribing!');
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        // Handle errors if the server request fails
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again later.');
-      });
     });
+  }
 
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const feedback = document.getElementById('feedback-input').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-feedback';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ feedback: feedback }),
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          alert('Thank you for your feedback!');
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your feedback submission.');
-      });
-    });
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
 
-    document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const email = document.getElementById('newsletter-email').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: email, form: 'newsletter' }),
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          alert('Thank you for subscribing to our newsletter!');
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your newsletter subscription.');
-      });
-    });
-  </script>
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  // Initialize
+  showStep(currentStep);
+
+  // Glowing Word Animation - Only toggling classes on spans (existing)
+  function toggleGlow() {
+    document.querySelectorAll('.glow-spiritism').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-mindset').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-lifestyle').forEach(el => el.classList.toggle('active-glow'));
+    document.querySelectorAll('.glow-you').forEach(el => el.classList.toggle('active-glow'));
+  }
+</script>
 </body>
 </html>
+
 
 
 
