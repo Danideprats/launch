@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Consciousness Factory | Coming Soon</title>
+  <title>Consciousness Factory | Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Global Styles for the whole website to ensure consistency */
+    /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -17,8 +17,7 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    
-    /* Navigation Bar */
+
     nav {
       background-color: #007bff;
       padding: 15px 30px;
@@ -51,25 +50,7 @@
     nav ul li a:hover {
       text-decoration: underline;
     }
-    .you-link {
-        border-bottom: 3px solid #ffd700;
-        padding-bottom: 3px;
-    }
-    .circle {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        margin-left: 6px;
-        vertical-align: middle;
-        transition: box-shadow 0.3s ease;
-    }
-    .yellow-circle { background-color: #ffff00; }
-    .pink-circle { background-color: #ff69b4; }
-    .green-circle { background-color: #00cc66; }
-    .purple-circle { background-color: #b266ff; }
-    
-    /* Hero Section */
+
     .hero {
       background-image: url('https://images.squarespace-cdn.com/content/v1/5d1f7bf5a554fa00013cf74d/1568139829258-739AMFZCGQEKNYNLZ9RB/spiritual+energy+healing');
       background-size: cover;
@@ -85,13 +66,13 @@
       position: relative;
     }
     .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
     }
     .hero-content {
       position: relative;
@@ -137,7 +118,6 @@
       transform: scale(1.05);
     }
 
-    /* Foundational Elements Section */
     .foundational-elements {
       padding: 60px 20px;
       background-color: #f9f9f9;
@@ -167,8 +147,8 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
     .card h3 {
       font-size: 1.5rem;
@@ -182,93 +162,63 @@
       line-height: 1.6;
       font-weight: 300;
     }
-    /* Specific card border colors */
     .card.you { border-left-color: #ffd700; }
     .card.mindset { border-left-color: #ff69b4; }
     .card.lifestyle { border-left-color: #00cc66; }
     .card.spirituality { border-left-color: #b266ff; }
-    .card .icon {
-        font-size: 1.5rem;
-        line-height: 1;
-    }
 
-    /* === Updated Feedback Section Styles === */
     .feedback-section {
-        background-color: #f9f9f9; /* Light gray to match the core pillars section */
-        padding: 60px 20px;
-        text-align: center;
+      background-color: #f9f9f9;
+      padding: 60px 20px;
+      text-align: center;
     }
     .feedback-section h2 {
-        font-size: 2.5rem;
-        color: #007bff; /* Blue to match the core pillars heading */
-        margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 20px;
     }
     .feedback-form-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 30px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .feedback-form-container textarea {
-        width: 100%;
-        min-height: 150px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        box-sizing: border-box;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feedback-form-container textarea:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      width: 100%;
+      min-height: 150px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
     .feedback-form-container button {
       padding: 12px 25px;
       border: none;
-      background-color: #007bff; /* Blue button to match footer and nav */
+      background-color: #007bff;
       color: white;
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      width: auto;
     }
     .feedback-form-container button:hover {
-      background-color: #0056b3; /* Darker blue on hover */
+      background-color: #0056b3;
       transform: scale(1.05);
     }
-    /* === End of Updated Feedback Section Styles === */
 
-    /* Footer */
     footer {
       background-color: #222;
       color: white;
       text-align: center;
       padding: 40px 20px;
       margin-top: auto;
-    }
-    .social-links {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-    .social-links li {
-      display: inline;
-      margin: 0 10px;
-    }
-    .social-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
     }
     .newsletter-form {
       margin-top: 20px;
@@ -293,42 +243,43 @@
       background-color: #0056b3;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
-        nav {
-            flex-direction: column;
-            gap: 10px;
-        }
-        nav ul {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        .hero-content h1 {
-            font-size: 2.2rem;
-        }
-        .hero-content p {
-            font-size: 1rem;
-        }
-        .hero-email-form {
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero-email-form input[type="email"],
-        .hero-email-form button {
-            width: 100%;
-            max-width: 300px;
-        }
-        .foundational-elements h2, .feedback-section h2 {
-            font-size: 2rem;
-        }
-        .feedback-form-container textarea {
-            min-height: 100px;
-        }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-email-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-email-form input[type="email"],
+      .hero-email-form button {
+        width: 100%;
+        max-width: 300px;
+      }
+      .foundational-elements h2,
+      .feedback-section h2 {
+        font-size: 2rem;
+      }
+      .feedback-form-container textarea {
+        min-height: 100px;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <div class="logo">Consciousness Factory</div>
     <ul>
@@ -340,7 +291,6 @@
     <div class="hero-content">
       <h1>Awaken Your Inner Creator</h1>
       <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
-    
       <form class="hero-email-form" id="email-form">
         <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
         <button type="submit">Get Exclusive Access</button>
@@ -374,107 +324,62 @@
     <h2>What Would You Like to See?</h2>
     <p>Your input is invaluable! Tell us what features or content would help you most on your journey.</p>
     <div class="feedback-form-container">
-        <form id="feedback-form">
-            <textarea name="feedback" id="feedback-input" placeholder="Share your thoughts here..."></textarea>
-            <button type="submit">Send Feedback</button>
-        </form>
+      <form id="feedback-form">
+        <textarea name="feedback" id="feedback-input" placeholder="Share your thoughts here..." required></textarea>
+        <button type="submit">Send Feedback</button>
+      </form>
     </div>
-</section>
+  </section>
+
   <footer>
-    <p>&copy; 2025  Consciousness Factory. All rights reserved.</p>
+    <p>&copy; 2025 Consciousness Factory. All rights reserved.</p>
     <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription form">
-      <label for="email">Subscribe to our newsletter:</label><br />
-      <input type="email" id="newsletter-email" name="email" placeholder="Your email" required aria-required="true" />
+      <label for="newsletter-email">Subscribe to our newsletter:</label><br />
+      <input type="email" id="newsletter-email" name="email" placeholder="Your email" required />
       <button type="submit">Subscribe</button>
     </form>
   </footer>
 
- <script>
+  <script>
+    const SERVER_URL = 'https://consciousness-factory-server.onrender.com';
+
     document.getElementById('email-form').addEventListener('submit', function(event) {
-      // Prevent the form from submitting normally
       event.preventDefault();
-
-      // Get the email value from the input field
       const email = document.getElementById('email-input').value;
-
-      // The server endpoint that will receive the data
-      // This URL needs to match the POST endpoint in your server.js file
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email'; 
-
-      // Send the email data to your server
-      fetch(serverEndpoint, {
+      fetch(`${SERVER_URL}/submit-email`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email, form: 'prelaunch' }),
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Handle success response from the server
-        alert('Thank you for subscribing!');
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        // Handle errors if the server request fails
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again later.');
-      });
+      .then(res => res.json())
+      .then(data => alert('Thank you for subscribing!'))
+      .catch(err => alert('Something went wrong. Please try again.'));
     });
 
     document.getElementById('feedback-form').addEventListener('submit', function(event) {
       event.preventDefault();
       const feedback = document.getElementById('feedback-input').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-feedback';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ feedback: feedback }),
+      fetch(`${SERVER_URL}/submit-feedback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ feedback: feedback }),
       })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your feedback submission.');
-      });
+      .then(res => res.json())
+      .then(data => alert('Thanks for your feedback!'))
+      .catch(err => alert('Error submitting feedback.'));
     });
 
     document.getElementById('newsletter-form').addEventListener('submit', function(event) {
       event.preventDefault();
       const email = document.getElementById('newsletter-email').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: email, form: 'newsletter' }),
+      fetch(`${SERVER_URL}/submit-email`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, form: 'newsletter' }),
       })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          alert('Thank you for subscribing to our newsletter!');
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your newsletter subscription.');
-      });
+      .then(res => res.json())
+      .then(data => alert('You’re subscribed to our newsletter!'))
+      .catch(err => alert('Newsletter submission failed.'));
     });
   </script>
 
