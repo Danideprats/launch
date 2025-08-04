@@ -106,38 +106,6 @@
       cursor: pointer;
     }
 
-    .foundational-elements {
-      padding: 60px 20px;
-      background-color: #f9f9f9;
-    }
-    .foundational-elements h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #007bff;
-      margin-bottom: 40px;
-    }
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      flex: 1 1 250px;
-      text-align: left;
-      border-left: 5px solid transparent;
-    }
-    .card.you { border-left-color: #ffd700; }
-    .card.mindset { border-left-color: #ff69b4; }
-    .card.lifestyle { border-left-color: #00cc66; }
-    .card.spirituality { border-left-color: #b266ff; }
-
     .feedback-section {
       background-color: #f9f9f9;
       padding: 60px 20px;
@@ -150,15 +118,43 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .feedback-form-container form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .feedback-form-container textarea {
       width: 100%;
+      max-width: 700px;
       min-height: 150px;
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 1.1rem;
       margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .feedback-form-container button {
+      padding: 12px 25px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .feedback-form-container button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
     }
 
     footer {
@@ -186,90 +182,9 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .hero-email-form {
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero-email-form input,
-      .hero-email-form button {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-    .feedback-form-container button {
-  padding: 12px 25px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.feedback-form-container button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-  feedback-form-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  
-  /* ✨ Fix alignment */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.feedback-form-container form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-Also update your <textarea> so it doesn’t exceed the parent container and centers visually:
-
-css
-Copy
-Edit
-.feedback-form-container textarea {
-  width: 100%;
-  max-width: 700px;
-  min-height: 150px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
   </style>
 </head>
 <body>
-
   <nav>
     <div class="logo">Consciousness Factory</div>
     <ul>
@@ -281,40 +196,18 @@ Edit
     <div class="hero-content">
       <h1>Awaken Your Inner Creator</h1>
       <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
-      <form id="email-form" class="hero-email-form" action="javascript:void(0)">
+      <form id="email-form" class="hero-email-form">
         <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
         <button type="submit">Get Exclusive Access</button>
       </form>
     </div>
   </header>
 
-  <section class="foundational-elements">
-    <h2>Our Core Pillars</h2>
-    <div class="cards-container">
-      <div class="card mindset">
-        <h3>&#x2764;&#xfe0f; Mindset</h3>
-        <p>Transform limiting beliefs into empowering affirmations.</p>
-      </div>
-      <div class="card lifestyle">
-        <h3>&#x2665; Lifestyle</h3>
-        <p>Create healthy, sustainable habits aligned with your goals.</p>
-      </div>
-      <div class="card spirituality">
-        <h3>&#x2728; Spirituality</h3>
-        <p>Connect deeply with gratitude, meditation, and intention.</p>
-      </div>
-      <div class="card you">
-        <h3>&#x2600; You</h3>
-        <p>Discover your values and align with your authentic path.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="feedback-section" id="feedback">
     <h2>What Would You Like to See?</h2>
-    <p>Your input is invaluable! Tell us what features or content would help you most.</p>
+    <p>Your input is invaluable!</p>
     <div class="feedback-form-container">
-      <form id="feedback-form" action="javascript:void(0)">
+      <form id="feedback-form">
         <textarea id="feedback-input" placeholder="Share your thoughts here..." required></textarea>
         <button type="submit">Send Feedback</button>
       </form>
@@ -323,7 +216,7 @@ Edit
 
   <footer>
     <p>&copy; 2025 Consciousness Factory. All rights reserved.</p>
-    <form id="newsletter-form" class="newsletter-form" action="javascript:void(0)">
+    <form id="newsletter-form" class="newsletter-form">
       <label for="newsletter-email">Subscribe to our newsletter:</label><br />
       <input type="email" id="newsletter-email" name="email" placeholder="Your email" required />
       <button type="submit">Subscribe</button>
@@ -333,50 +226,46 @@ Edit
   <script>
     const SERVER_URL = 'https://consciousness-factory-server.onrender.com';
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Prelaunch email form
-      document.getElementById('email-form').addEventListener('submit', function (e) {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('email-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('email-input').value;
         fetch(`${SERVER_URL}/submit-email`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, form: 'prelaunch' }),
+          body: JSON.stringify({ email, form: 'prelaunch' }),
         })
         .then(res => res.json())
-        .then(() => alert('Thank you for subscribing!'))
-        .catch(() => alert('Something went wrong. Try again later.'));
+        .then(() => alert('Thanks for subscribing!'))
+        .catch(() => alert('Something went wrong.'));
       });
 
-      // Feedback form
-      document.getElementById('feedback-form').addEventListener('submit', function (e) {
+      document.getElementById('feedback-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const feedback = document.getElementById('feedback-input').value;
         fetch(`${SERVER_URL}/submit-feedback`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ feedback: feedback }),
+          body: JSON.stringify({ feedback }),
         })
         .then(res => res.json())
-        .then(() => alert('Thanks for your feedback!'))
-        .catch(() => alert('Error submitting feedback.'));
+        .then(() => alert('Feedback submitted!'))
+        .catch(() => alert('Feedback failed.'));
       });
 
-      // Newsletter form
-      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+      document.getElementById('newsletter-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('newsletter-email').value;
         fetch(`${SERVER_URL}/submit-email`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, form: 'newsletter' }),
+          body: JSON.stringify({ email, form: 'newsletter' }),
         })
         .then(res => res.json())
-        .then(() => alert('Subscribed to our newsletter!'))
-        .catch(() => alert('Newsletter subscription failed.'));
+        .then(() => alert('You are subscribed!'))
+        .catch(() => alert('Subscription failed.'));
       });
     });
   </script>
-
 </body>
 </html>
