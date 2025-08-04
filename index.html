@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -415,6 +415,11 @@
         }
         return response.json();
       })
+      .then(data => {
+        // Handle success response from the server
+        alert('Thank you for subscribing!');
+        console.log('Success:', data);
+      })
       .catch((error) => {
         // Handle errors if the server request fails
         console.error('Error:', error);
@@ -438,6 +443,10 @@
               throw new Error('Network response was not ok');
           }
           return response.json();
+      })
+      .then(data => {
+          alert('Thank you for your feedback!');
+          console.log('Success:', data);
       })
       .catch((error) => {
           console.error('Error:', error);
@@ -473,5 +482,4 @@
     });
   </script>
 
-</body>
-</html>
+</body></html>
