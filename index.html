@@ -342,7 +342,7 @@
       <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
     
       <form class="hero-email-form" id="email-form">
-        <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
+        <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required />
         <button type="submit">Get Exclusive Access</button>
       </form>
     </div>
@@ -443,10 +443,6 @@
               throw new Error('Network response was not ok');
           }
           return response.json();
-      })
-      .then(data => {
-          alert('Thank you for your feedback!');
-          console.log('Success:', data);
       })
       .catch((error) => {
           console.error('Error:', error);
