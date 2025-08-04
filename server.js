@@ -1,51 +1,56 @@
-// Import the necessary modules
+// server.js
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
-// Create an Express application
 const app = express();
-const port = process.env.PORT || 3000; // Use Render's port or default to 3000 for local development
+const port = process.env.PORT || 3000;
 
-// Middleware to parse JSON bodies from incoming requests
+// Middleware
 app.use(express.json());
+app.use(cors({
+  origin: [
+    'https://www.consciousnessfactory.com',
+    'https://consciousnessfactory.com',
+    'http://localhost:3000' // Local dev support
+  ],
+  optionsSuccessStatus: 200
+}));
 
-// Configure CORS to allow requests from your website's domain
-// In a production environment, you should be specific about the allowed origins
-const corsOptions = {
-    origin: ['https://www.consciousnessfactory.com', 'https://consciousnessfactory.com', 'https://consciousness-factory.onrender.com'],
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+// Serve static files (HTML/CSS/JS)
+app.use(express.static(path.join(__dirname, 'public')));
 
-// A POST route to handle a catch-all for submission errors
-app.post('/', (req, res) => {
-    console.error('Submission to root URL received. This should not happen.');
-    res.status(404).json({ success: false, message: 'Route not found' });
-});
-
-// A POST route to handle email submissions
+// Email submission route
 app.post('/submit-email', (req, res) => {
-    const { email, form } = req.body;
-    
-    // In a production environment, you would save this to a database.
-    // For this demonstration, we'll log it to the console.
-    console.log(`New email submitted: ${email}, Form: ${form}`);
-    res.status(200).json({ success: true, message: 'Email submitted successfully!' });
+  const { email, form } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: 'Email is required.' });
+  }
+
+  const entry = `${new Date().toISOString()} - ${email} (${form || 'unknown'})\n`;
+  const filePath = path.join(__dirname, 'subscribers.txt');
+
+  fs.appendFile(filePath, entry, (err) => {
+    if (err) {
+      console.error('Error saving email:', err);
+      return res.status(500).json({ success: false, message: 'Failed to save email.' });
+    }
+    console.log('Saved:', email);
+    return res.status(200).json({ success: true, message: 'Email submitted successfully!' });
+  });
 });
 
-// A POST route to handle feedback submissions
+// Feedback route (optional)
 app.post('/submit-feedback', (req, res) => {
-    const { feedback } = req.body;
-    
-    // In a production environment, you would save this to a database.
-    // For this demonstration, we'll log it to the console.
-    console.log(`New feedback submitted: ${feedback}`);
-    res.status(200).json({ success: true, message: 'Feedback submitted successfully!' });
+  const { feedback } = req.body;
+  const entry = `${new Date().toISOString()} - ${feedback}\n`;
+  fs.appendFileSync(path.join(__dirname, 'feedback.txt'), entry);
+  res.status(200).json({ success: true, message: 'Feedback submitted!' });
 });
 
-// Start the server and listen on the specified port
+// Start server
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+  console.log(`🚀 Server running on http://localhost:${port}`);
 });
