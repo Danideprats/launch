@@ -1,4 +1,5 @@
 
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -135,6 +136,49 @@
     .hero-email-form button:hover {
       background-color: #ccaa00;
       transform: scale(1.05);
+    }
+
+    /* Countdown Timer Styles */
+    .countdown-container {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .countdown-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        padding: 15px 20px;
+        border-radius: 10px;
+        min-width: 80px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .countdown-value {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        line-height: 1;
+    }
+    .countdown-label {
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #fff;
+        margin-top: 5px;
     }
 
     /* Foundational Elements Section */
@@ -325,6 +369,21 @@
         .feedback-form-container textarea {
             min-height: 100px;
         }
+        /* Responsive adjustments for the countdown */
+        .countdown {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .countdown-item {
+            padding: 10px 15px;
+            min-width: 60px;
+        }
+        .countdown-value {
+            font-size: 2rem;
+        }
+        .countdown-label {
+            font-size: 0.8rem;
+        }
     }
   </style>
 </head>
@@ -340,6 +399,28 @@
     <div class="hero-content">
       <h1>Awaken Your Inner Creator</h1>
       <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
+    
+      <div class="countdown-container">
+        <h2>Launch Countdown</h2>
+        <div id="countdown" class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-value" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
     
       <form class="hero-email-form" id="email-form">
         <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
@@ -390,6 +471,42 @@
   </footer>
 
  <script>
+    // Countdown Timer Script
+    const countdown = () => {
+        // Set the launch date to December 21, 2025
+        const countDate = new Date('December 21, 2025 00:00:00').getTime();
+        const now = new Date().getTime();
+        const gap = countDate - now;
+
+        // How the time works
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        // Calculate the values
+        const textDay = Math.floor(gap / day);
+        const textHour = Math.floor((gap % day) / hour);
+        const textMinute = Math.floor((gap % hour) / minute);
+        const textSecond = Math.floor((gap % minute) / second);
+
+        // Update the HTML with the new values, padding with a '0' if less than 10
+        document.getElementById('days').innerText = textDay < 10 ? '0' + textDay : textDay;
+        document.getElementById('hours').innerText = textHour < 10 ? '0' + textHour : textHour;
+        document.getElementById('minutes').innerText = textMinute < 10 ? '0' + textMinute : textMinute;
+        document.getElementById('seconds').innerText = textSecond < 10 ? '0' + textSecond : textSecond;
+
+        // Stop the countdown when it reaches zero
+        if (gap < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').innerHTML = '<h2>We have launched!</h2>';
+        }
+    };
+
+    // Run the countdown function every second
+    const countdownInterval = setInterval(countdown, 1000);
+    
+    // Form Submission Scripts
     document.getElementById('email-form').addEventListener('submit', function(event) {
       // Prevent the form from submitting normally
       event.preventDefault();
@@ -398,7 +515,6 @@
       const email = document.getElementById('email-input').value;
 
       // The server endpoint that will receive the data
-      // This URL needs to match the POST endpoint in your server.js file
       const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email'; 
 
       // Send the email data to your server
@@ -482,4 +598,8 @@
     });
   </script>
 
-</body></html>
+</body>
+</html>
+
+
+
