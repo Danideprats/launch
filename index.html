@@ -1,605 +1,620 @@
 
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Consciousness Factory | Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <style>
-    /* Global Styles for the whole website to ensure consistency */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f7fa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    
-    /* Navigation Bar */
-    nav {
-      background-color: #007bff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      flex-wrap: wrap;
-    }
-    nav .logo {
-      color: #fff;
-      font-size: 24px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    .you-link {
-        border-bottom: 3px solid #ffd700;
-        padding-bottom: 3px;
-    }
-    .circle {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        margin-left: 6px;
-        vertical-align: middle;
-        transition: box-shadow 0.3s ease;
-    }
-    .yellow-circle { background-color: #ffff00; }
-    .pink-circle { background-color: #ff69b4; }
-    .green-circle { background-color: #00cc66; }
-    .purple-circle { background-color: #b266ff; }
-    
-    /* Hero Section */
-    .hero {
-      background-image: url('https://images.squarespace-cdn.com/content/v1/5d1f7bf5a554fa00013cf74d/1568139829258-739AMFZCGQEKNYNLZ9RB/spiritual+energy+healing');
-      background-size: cover;
-      background-position: center;
-      min-height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-    }
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      font-weight: 300;
-      margin-bottom: 30px;
-    }
-    .hero-email-form {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .hero-email-form input[type="email"] {
-      padding: 12px;
-      width: 60%;
-      max-width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-    }
-    .hero-email-form button {
-      padding: 12px 25px;
-      border: none;
-      background-color: #ffd700;
-      color: #333;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .hero-email-form button:hover {
-      background-color: #ccaa00;
-      transform: scale(1.05);
-    }
-
-    /* Countdown Timer Styles */
-    .countdown-container {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    .countdown-container h2 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-    .countdown {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-    .countdown-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(5px);
-        padding: 15px 20px;
-        border-radius: 10px;
-        min-width: 80px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .countdown-value {
-        font-size: 2.5rem;
-        font-weight: 600;
-        color: #ffd700;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        line-height: 1;
-    }
-    .countdown-label {
-        font-size: 0.9rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        color: #fff;
-        margin-top: 5px;
-    }
-
-    /* Foundational Elements Section */
-    .foundational-elements {
-      padding: 60px 20px;
-      background-color: #f9f9f9;
-    }
-    .foundational-elements h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #007bff;
-      margin-bottom: 40px;
-    }
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      flex: 1 1 250px;
-      text-align: left;
-      border-left: 5px solid transparent;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-    .card h3 {
-      font-size: 1.5rem;
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card p {
-      margin: 0;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-    /* Specific card border colors */
-    .card.you { border-left-color: #ffd700; }
-    .card.mindset { border-left-color: #ff69b4; }
-    .card.lifestyle { border-left-color: #00cc66; }
-    .card.spirituality { border-left-color: #b266ff; }
-    .card .icon {
-        font-size: 1.5rem;
-        line-height: 1;
-    }
-
-    /* === Updated Feedback Section Styles === */
-    .feedback-section {
-        background-color: #f9f9f9; /* Light gray to match the core pillars section */
-        padding: 60px 20px;
-        text-align: center;
-    }
-    .feedback-section h2 {
-        font-size: 2.5rem;
-        color: #007bff; /* Blue to match the core pillars heading */
-        margin-bottom: 20px;
-    }
-    .feedback-form-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 30px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .feedback-form-container textarea {
-        width: 100%;
-        min-height: 150px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        box-sizing: border-box;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feedback-form-container textarea:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-    .feedback-form-container button {
-      padding: 12px 25px;
-      border: none;
-      background-color: #007bff; /* Blue button to match footer and nav */
-      color: white;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      width: auto;
-    }
-    .feedback-form-container button:hover {
-      background-color: #0056b3; /* Darker blue on hover */
-      transform: scale(1.05);
-    }
-    /* === End of Updated Feedback Section Styles === */
-
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: auto;
-    }
-    .social-links {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-    .social-links li {
-      display: inline;
-      margin: 0 10px;
-    }
-    .social-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    .newsletter-form {
-      margin-top: 20px;
-    }
-    .newsletter-form input[type="email"] {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      width: 250px;
-      margin-top: 10px;
-    }
-    .newsletter-form button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .newsletter-form button:hover {
-      background-color: #0056b3;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        nav {
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consciousness Factory | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+        /* Global Styles for the whole website to ensure consistency */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fa;
+            color: #333;
+            display: flex;
             flex-direction: column;
-            gap: 10px;
+            min-height: 100vh;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: #007bff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        nav .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .you-link {
+            border-bottom: 3px solid #ffd700;
+            padding-bottom: 3px;
+        }
+        .circle {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+            transition: box-shadow 0.3s ease;
+        }
+        .yellow-circle { background-color: #ffff00; }
+        .pink-circle { background-color: #ff69b4; }
+        .green-circle { background-color: #00cc66; }
+        .purple-circle { background-color: #b266ff; }
+        
+        /* Hero Section */
+        .hero {
+            background-image: url('https://images.squarespace-cdn.com/content/v1/5d1f7bf5a554fa00013cf74d/1568139829258-739AMFZCGQEKNYNLZ9RB/spiritual+energy+healing');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: opacity 0.5s ease-in-out; /* Add transition for fade effect */
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        .hero-email-form {
+            display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
         }
-        .hero-content h1 {
-            font-size: 2.2rem;
+        .hero-email-form input[type="email"] {
+            padding: 12px;
+            width: 60%;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
         }
-        .hero-content p {
-            font-size: 1rem;
+        .hero-email-form button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #ffd700;
+            color: #333;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .hero-email-form {
+        .hero-email-form button:hover {
+            background-color: #ccaa00;
+            transform: scale(1.05);
+        }
+    
+        /* Countdown Timer Styles */
+        .countdown-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .countdown-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #fff;
+            margin-top: 5px;
+        }
+    
+        /* Foundational Elements Section */
+        .foundational-elements {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+        }
+        .foundational-elements h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 40px;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            flex: 1 1 250px;
+            text-align: left;
+            border-left: 5px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card p {
+            margin: 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        /* Specific card border colors */
+        .card.you { border-left-color: #ffd700; }
+        .card.mindset { border-left-color: #ff69b4; }
+        .card.lifestyle { border-left-color: #00cc66; }
+        .card.spirituality { border-left-color: #b266ff; }
+        .card .icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    
+        /* === Updated Feedback Section Styles === */
+        .feedback-section {
+            background-color: #f9f9f9; /* Light gray to match the core pillars section */
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .feedback-section h2 {
+            font-size: 2.5rem;
+            color: #007bff; /* Blue to match the core pillars heading */
+            margin-bottom: 20px;
+        }
+        .feedback-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .hero-email-form input[type="email"],
-        .hero-email-form button {
-            width: 100%;
-            max-width: 300px;
-        }
-        .foundational-elements h2, .feedback-section h2 {
-            font-size: 2rem;
-        }
         .feedback-form-container textarea {
-            min-height: 100px;
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        /* Responsive adjustments for the countdown */
-        .countdown {
-            flex-wrap: wrap;
-            gap: 10px;
+        .feedback-form-container textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
-        .countdown-item {
-            padding: 10px 15px;
-            min-width: 60px;
+        .feedback-form-container button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #007bff; /* Blue button to match footer and nav */
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: auto;
         }
-        .countdown-value {
-            font-size: 2rem;
+        .feedback-form-container button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05);
         }
-        .countdown-label {
-            font-size: 0.8rem;
+        /* === End of Updated Feedback Section Styles === */
+    
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: auto;
         }
-    }
-  </style>
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .social-links li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            margin-top: 10px;
+        }
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-email-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-email-form input[type="email"],
+            .hero-email-form button {
+                width: 100%;
+                max-width: 300px;
+            }
+            .foundational-elements h2, .feedback-section h2 {
+                font-size: 2rem;
+            }
+            .feedback-form-container textarea {
+                min-height: 100px;
+            }
+            /* Responsive adjustments for the countdown */
+            .countdown {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .countdown-item {
+                padding: 10px 15px;
+                min-width: 60px;
+            }
+            .countdown-value {
+                font-size: 2rem;
+            }
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Consciousness Factory</div>
-    <ul>
-      <li><a href="aboutus.html">About Us</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Awaken Your Inner Creator</h1>
-      <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
+    <nav>
+        <div class="logo">Consciousness Factory</div>
+        <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </nav>
     
-      <div class="countdown-container">
-        <h2>Launch Countdown</h2>
-        <div id="countdown" class="countdown">
-          <div class="countdown-item">
-            <span class="countdown-value" id="days">00</span>
-            <span class="countdown-label">Days</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="hours">00</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="minutes">00</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-value" id="seconds">00</span>
-            <span class="countdown-label">Seconds</span>
-          </div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1 id="hero-headline"></h1>
+            <p>We're building a platform to help you manifest a life of purpose and joy. Be the first to know when we launch!</p>
+            
+            <div class="countdown-container">
+                <h2>Launch Countdown</h2>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="hero-email-form" id="email-form">
+                <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
+                <button type="submit">Get Exclusive Access</button>
+            </form>
         </div>
-      </div>
+    </header>
     
-      <form class="hero-email-form" id="email-form">
-        <input type="email" id="email-input" name="email" placeholder="Enter your email" required />
-        <button type="submit">Get Exclusive Access</button>
-      </form>
-    </div>
-  </header>
-
-  <section class="foundational-elements">
-    <h2>Our Core Pillars</h2>
-    <div class="cards-container">
-      <div class="card mindset">
-        <h3><span class="icon">&#x2764;&#xfe0f;</span> Mindset</h3>
-        <p>Learn to track and transform limiting beliefs into empowering affirmations, shifting your consciousness for good.</p>
-      </div>
-      <div class="card lifestyle">
-        <h3>🌱</span> Lifestyle</h3>
-        <p>Build powerful, healthy habits that align with your intentions and create a foundation for lasting change.</p>
-      </div>
-      <div class="card spirituality">
-        <h3><span class="icon">&#x2728;</span> Spirituality</h3>
-        <p>Explore gratitude, meditation, and intention-setting as tools to deepen your connection to yourself and the world.</p>
-      </div>
-      <div class="card you">
-        <h3><span class="icon">&#x2600;</span> You</h3>
-        <p>A guided journey to uncover your core values, define your goals, and connect with your inner truth.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="feedback-section" id="feedback">
-    <h2>What Would You Like to See?</h2>
-    <p>Your input is invaluable! Tell us what features or content would help you most on your journey.</p>
-    <div class="feedback-form-container">
-        <form id="feedback-form">
-            <textarea name="feedback" id="feedback-input" placeholder="Share your thoughts here..."></textarea>
-            <button type="submit">Send Feedback</button>
+    <section class="foundational-elements">
+        <h2>Our Core Pillars</h2>
+        <div class="cards-container">
+            <div class="card mindset">
+                <h3><span class="icon">&#x2764;&#xfe0f;</span> Mindset</h3>
+                <p>Learn to track and transform limiting beliefs into empowering affirmations, shifting your consciousness for good.</p>
+            </div>
+            <div class="card lifestyle">
+                <h3>🌱</span> Lifestyle</h3>
+                <p>Build powerful, healthy habits that align with your intentions and create a foundation for lasting change.</p>
+            </div>
+            <div class="card spirituality">
+                <h3><span class="icon">&#x2728;</span> Spirituality</h3>
+                <p>Explore gratitude, meditation, and intention-setting as tools to deepen your connection to yourself and the world.</p>
+            </div>
+            <div class="card you">
+                <h3><span class="icon">&#x2600;</span> You</h3>
+                <p>A guided journey to uncover your core values, define your goals, and connect with your inner truth.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="feedback-section" id="feedback">
+        <h2>What Would You Like to See?</h2>
+        <p>Your input is invaluable! Tell us what features or content would help you most on your journey.</p>
+        <div class="feedback-form-container">
+            <form id="feedback-form">
+                <textarea name="feedback" id="feedback-input" placeholder="Share your thoughts here..."></textarea>
+                <button type="submit">Send Feedback</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Consciousness Factory. All rights reserved.</p>
+        <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription form">
+            <label for="email">Subscribe to our newsletter:</label><br />
+            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required aria-required="true" />
+            <button type="submit">Subscribe</button>
         </form>
-    </div>
-</section>
-  <footer>
-    <p>&copy; 2025  Consciousness Factory. All rights reserved.</p>
-    <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter subscription form">
-      <label for="email">Subscribe to our newsletter:</label><br />
-      <input type="email" id="newsletter-email" name="email" placeholder="Your email" required aria-required="true" />
-      <button type="submit">Subscribe</button>
-    </form>
-  </footer>
-
- <script>
-    // Countdown Timer Script
-    const countdown = () => {
-        // Set the launch date to December 21, 2025
-        const countDate = new Date('December 21, 2025 00:00:00').getTime();
-        const now = new Date().getTime();
-        const gap = countDate - now;
-
-        // How the time works
-        const second = 1000;
-        const minute = second * 60;
-        const hour = minute * 60;
-        const day = hour * 24;
-
-        // Calculate the values
-        const textDay = Math.floor(gap / day);
-        const textHour = Math.floor((gap % day) / hour);
-        const textMinute = Math.floor((gap % hour) / minute);
-        const textSecond = Math.floor((gap % minute) / second);
-
-        // Update the HTML with the new values, padding with a '0' if less than 10
-        document.getElementById('days').innerText = textDay < 10 ? '0' + textDay : textDay;
-        document.getElementById('hours').innerText = textHour < 10 ? '0' + textHour : textHour;
-        document.getElementById('minutes').innerText = textMinute < 10 ? '0' + textMinute : textMinute;
-        document.getElementById('seconds').innerText = textSecond < 10 ? '0' + textSecond : textSecond;
-
-        // Stop the countdown when it reaches zero
-        if (gap < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById('countdown').innerHTML = '<h2>We have launched!</h2>';
-        }
-    };
-
-    // Run the countdown function every second
-    const countdownInterval = setInterval(countdown, 1000);
+    </footer>
     
-    // Form Submission Scripts
-    document.getElementById('email-form').addEventListener('submit', function(event) {
-      // Prevent the form from submitting normally
-      event.preventDefault();
-
-      // Get the email value from the input field
-      const email = document.getElementById('email-input').value;
-
-      // The server endpoint that will receive the data
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email'; 
-
-      // Send the email data to your server
-      fetch(serverEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, form: 'prelaunch' }),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Handle success response from the server
-        alert('Thank you for subscribing!');
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        // Handle errors if the server request fails
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again later.');
-      });
-    });
-
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const feedback = document.getElementById('feedback-input').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-feedback';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ feedback: feedback }),
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          alert('Thank you for your feedback!');
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your feedback submission.');
-      });
-    });
-
-    document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const email = document.getElementById('newsletter-email').value;
-      const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
-      fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: email, form: 'newsletter' }),
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          alert('Thank you for subscribing to our newsletter!');
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          alert('Something went wrong with your newsletter subscription.');
-      });
-    });
-  </script>
-
+    <script>
+        // Countdown Timer Script
+        const countdown = () => {
+            // Set the launch date to December 21, 2025
+            const countDate = new Date('December 21, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const gap = countDate - now;
+    
+            // How the time works
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+    
+            // Calculate the values
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+    
+            // Update the HTML with the new values, padding with a '0' if less than 10
+            document.getElementById('days').innerText = textDay < 10 ? '0' + textDay : textDay;
+            document.getElementById('hours').innerText = textHour < 10 ? '0' + textHour : textHour;
+            document.getElementById('minutes').innerText = textMinute < 10 ? '0' + textMinute : textMinute;
+            document.getElementById('seconds').innerText = textSecond < 10 ? '0' + textSecond : textSecond;
+    
+            // Stop the countdown when it reaches zero
+            if (gap < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<h2>We have launched!</h2>';
+            }
+        };
+    
+        // Run the countdown function every second
+        const countdownInterval = setInterval(countdown, 1000);
+    
+        // Text Carousel Script
+        const headlines = ["Define Your Purpose", "Transform Your Thoughts", "Design Your Reality"];
+        let headlineIndex = 0;
+        const heroHeadline = document.getElementById('hero-headline');
+    
+        const changeHeadline = () => {
+            heroHeadline.style.opacity = 0;
+            setTimeout(() => {
+                heroHeadline.innerText = headlines[headlineIndex];
+                heroHeadline.style.opacity = 1;
+                headlineIndex = (headlineIndex + 1) % headlines.length;
+            }, 500); // Wait for fade out to complete before changing text
+        };
+    
+        // Initial call and then every 3 seconds
+        heroHeadline.innerText = headlines[headlineIndex];
+        headlineIndex++;
+        setInterval(changeHeadline, 3000);
+        
+        // Form Submission Scripts
+        document.getElementById('email-form').addEventListener('submit', function(event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+    
+            // Get the email value from the input field
+            const email = document.getElementById('email-input').value;
+    
+            // The server endpoint that will receive the data
+            const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
+    
+            // Send the email data to your server
+            fetch(serverEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email, form: 'prelaunch' }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle success response from the server
+                alert('Thank you for subscribing!');
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                // Handle errors if the server request fails
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again later.');
+            });
+        });
+    
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('feedback-input').value;
+            const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-feedback';
+            fetch(serverEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ feedback: feedback }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Thank you for your feedback!');
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Something went wrong with your feedback submission.');
+            });
+        });
+    
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
+            fetch(serverEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email, form: 'newsletter' }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Thank you for subscribing to our newsletter!');
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Something went wrong with your newsletter subscription.');
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
