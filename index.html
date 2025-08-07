@@ -1,4 +1,5 @@
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -137,7 +138,7 @@
             background-color: #ccaa00;
             transform: scale(1.05);
         }
-    
+
         /* Countdown Timer Styles */
         .countdown-container {
             margin-top: 30px;
@@ -180,22 +181,25 @@
             color: #fff;
             margin-top: 5px;
         }
-    
+        
         /* Foundational Elements Section */
-        /* Foundational Elements Section */
-.foundational-elements {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-}
-.foundational-elements h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #000; /* Changed to black */
-    margin-bottom: 40px;
-}
-/* ... */
-/* === Updated Feedback Section Styles === */
-
+        .foundational-elements {
+            padding: 60px 20px;
+            background-color: #f4f7fa;
+        }
+        .foundational-elements h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        /* New container for the single "You" card */
+        .you-card-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
         .cards-container {
             display: flex;
             flex-wrap: wrap;
@@ -230,6 +234,30 @@
             line-height: 1.6;
             font-weight: 300;
         }
+        /* Style for the key phrases inside the paragraphs */
+        .card p strong {
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the key phrases */
+        .card.you:hover p strong {
+            color: #ffd700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+        .card.mindset:hover p strong {
+            color: #ff69b4;
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.7);
+        }
+        .card.lifestyle:hover p strong {
+            color: #00cc66;
+            text-shadow: 0 0 5px rgba(0, 204, 102, 0.7);
+        }
+        .card.spirituality:hover p strong {
+            color: #b266ff;
+            text-shadow: 0 0 5px rgba(178, 102, 255, 0.7);
+        }
         /* Specific card border colors */
         .card.you { border-left-color: #ffd700; }
         .card.mindset { border-left-color: #ff69b4; }
@@ -239,17 +267,17 @@
             font-size: 1.5rem;
             line-height: 1;
         }
-    
+        
         /* === Updated Feedback Section Styles === */
-       .feedback-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    text-align: center;
-}
-.feedback-section h2 {
-    font-size: 2.5rem;
-    color: #000; /* Changed to black */
-    margin-bottom: 20px;
+        .feedback-section {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .feedback-section h2 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 20px;
         }
         .feedback-form-container {
             max-width: 800px;
@@ -295,7 +323,7 @@
             transform: scale(1.05);
         }
         /* === End of Updated Feedback Section Styles === */
-    
+        
         /* Footer */
         footer {
             background-color: #222;
@@ -340,7 +368,7 @@
         .newsletter-form button:hover {
             background-color: #0056b3;
         }
-    
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             nav {
@@ -435,22 +463,24 @@
     
     <section class="foundational-elements">
         <h2>Our Core Pillars: Your Manufacturing Process</h2>
+        <div class="you-card-container">
+            <div class="card you">
+                <h3><span class="icon">&#x2600;</span> You</h3>
+                <p><strong>The Raw Material:</strong> You are the starting point. This pillar is about taking an honest inventory of who you are today—your core values, your deepest dreams, and the goals you want to achieve.</p>
+            </div>
+        </div>
         <div class="cards-container">
             <div class="card mindset">
                 <h3><span class="icon">&#x2764;&#xfe0f;</span> Mindset</h3>
-                <p>The Blueprint: Your beliefs are the blueprints. Here, you'll learn to identify and replace limiting beliefs with empowering affirmations, designing a new schematic for your potential.</p>
+                <p><strong>The Blueprint:</strong> Your beliefs are the blueprints. Here, you'll learn to identify and replace limiting beliefs with empowering affirmations, designing a new schematic for your potential.</p>
             </div>
             <div class="card lifestyle">
-                <h3>🌱</span> Lifestyle</h3>
-                <p>The Assembly Line: This is where the work gets done. You'll build powerful daily habits and repeatable systems that take your intentions and turn them into tangible reality.</p>
+                <h3><span class="icon">&#x1F331;</span> Lifestyle</h3>
+                <p><strong>The Assembly Line:</strong> This is where the work gets done. You'll build powerful daily habits and repeatable systems that take your intentions and turn them into tangible reality.</p>
             </div>
             <div class="card spirituality">
                 <h3><span class="icon">&#x2728;</span> Alignment</h3>
-                <p>Quality Control & Innovation: This is the final stage of refinement. Through visualization, meditation, and gratitud, you'll ensure your creation is perfectly aligned with your highest self.</p>
-            </div>
-            <div class="card you">
-                <h3><span class="icon">&#x2600;</span> You</h3>
-                <p>The Raw Material: You are the starting point. This pillar is about taking an honest inventory of who you are today—your core values, your deepest dreams, and the goals you want to achieve.</p>
+                <p><strong>Quality Control & Innovation:</strong> This is the final stage of refinement. Through visualization, meditation, and gratitude, you'll ensure your creation is perfectly aligned with your highest self.</p>
             </div>
         </div>
     </section>
@@ -481,40 +511,40 @@
             const countDate = new Date('December 21, 2025 00:00:00').getTime();
             const now = new Date().getTime();
             const gap = countDate - now;
-    
+        
             // How the time works
             const second = 1000;
             const minute = second * 60;
             const hour = minute * 60;
             const day = hour * 24;
-    
+        
             // Calculate the values
             const textDay = Math.floor(gap / day);
             const textHour = Math.floor((gap % day) / hour);
             const textMinute = Math.floor((gap % hour) / minute);
             const textSecond = Math.floor((gap % minute) / second);
-    
+        
             // Update the HTML with the new values, padding with a '0' if less than 10
             document.getElementById('days').innerText = textDay < 10 ? '0' + textDay : textDay;
             document.getElementById('hours').innerText = textHour < 10 ? '0' + textHour : textHour;
             document.getElementById('minutes').innerText = textMinute < 10 ? '0' + textMinute : textMinute;
             document.getElementById('seconds').innerText = textSecond < 10 ? '0' + textSecond : textSecond;
-    
+        
             // Stop the countdown when it reaches zero
             if (gap < 0) {
                 clearInterval(countdownInterval);
                 document.getElementById('countdown').innerHTML = '<h2>We have launched!</h2>';
             }
         };
-    
+        
         // Run the countdown function every second
         const countdownInterval = setInterval(countdown, 1000);
-    
+        
         // Text Carousel Script
         const headlines = ["Define Your Purpose", "Transform Your Thoughts", "Design Your Reality"];
         let headlineIndex = 0;
         const heroHeadline = document.getElementById('hero-headline');
-    
+        
         const changeHeadline = () => {
             heroHeadline.style.opacity = 0;
             setTimeout(() => {
@@ -523,7 +553,7 @@
                 headlineIndex = (headlineIndex + 1) % headlines.length;
             }, 500); // Wait for fade out to complete before changing text
         };
-    
+        
         // Initial call and then every 3 seconds
         heroHeadline.innerText = headlines[headlineIndex];
         headlineIndex++;
@@ -533,13 +563,13 @@
         document.getElementById('email-form').addEventListener('submit', function(event) {
             // Prevent the form from submitting normally
             event.preventDefault();
-    
+        
             // Get the email value from the input field
             const email = document.getElementById('email-input').value;
-    
+        
             // The server endpoint that will receive the data
             const serverEndpoint = 'https://onsciousness-factory-server.onrender.com/submit-email';
-    
+        
             // Send the email data to your server
             fetch(serverEndpoint, {
                 method: 'POST',
@@ -565,7 +595,7 @@
                 alert('Something went wrong. Please try again later.');
             });
         });
-    
+        
         document.getElementById('feedback-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const feedback = document.getElementById('feedback-input').value;
@@ -592,7 +622,7 @@
                 alert('Something went wrong with your feedback submission.');
             });
         });
-    
+        
         document.getElementById('newsletter-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = document.getElementById('newsletter-email').value;
@@ -622,3 +652,6 @@
     </script>
 </body>
 </html>
+
+
+
