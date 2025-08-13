@@ -1,5 +1,4 @@
-
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -186,12 +185,17 @@
         .foundational-elements {
             padding: 60px 20px;
             background-color: #f4f7fa;
+            text-align: center;
         }
         .foundational-elements h2 {
-            text-align: center;
             font-size: 2.5rem;
             color: #000;
             margin-bottom: 20px;
+        }
+        .foundational-elements .welcome-text {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
         }
         /* New container for the single "You" card */
         .you-card-container {
@@ -268,7 +272,7 @@
             line-height: 1;
         }
         
-        /* === Updated Feedback Section Styles === */
+        /* Updated Feedback Section Styles */
         .feedback-section {
             background-color: #f9f9f9;
             padding: 60px 20px;
@@ -282,11 +286,11 @@
         .feedback-form-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 
+            padding: 30px;
             background: transparent;
-            border-radius:
-            box-shadow: 
-            display: 
+            border-radius: 8px;
+            box-shadow: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
         }
@@ -322,7 +326,6 @@
             background-color: #0056b3; /* Darker blue on hover */
             transform: scale(1.05);
         }
-        /* === End of Updated Feedback Section Styles === */
         
         /* Footer */
         footer {
@@ -411,7 +414,7 @@
                 min-width: 60px;
             }
             .countdown-value {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             .countdown-label {
                 font-size: 0.8rem;
@@ -462,24 +465,28 @@
     </header>
     
     <section class="foundational-elements">
-        <h2>Our Core Pillars: Your Manufacturing Process</h2>
+        <div class="welcome-text">
+            <h2>Welcome to the Consciousness Factory</h2>
+            <p>A digital factory dedicated to helping you actively shape your reality. Our mission is to provide a practical toolkit designed to transform your inner world and align your life with your vision. This platform empowers your personal journey, guiding you to discover your own solutions instead of providing a single, ultimate answer.</p>
+        </div>
+        <h2>Our Core Pillars</h2>
         <div class="you-card-container">
             <div class="card you">
-                <h3><span class="icon">&#x2600;</span> You</h3>
+                <h3><span class="icon">&#x2600;</span>You</h3>
                 <p><strong>The Raw Material:</strong> You are the starting point. This pillar is about taking an honest inventory of who you are today—your core values, your deepest dreams, and the goals you want to achieve.</p>
             </div>
         </div>
         <div class="cards-container">
             <div class="card mindset">
-                <h3><span class="icon">&#x2764;&#xfe0f;</span> Mindset</h3>
-                <p><strong>The Blueprint:</strong> Your beliefs are the blueprints. Here, you'll learn to identify and replace limiting beliefs with empowering affirmations, designing a new schematic for your potential.</p>
+                <h3><span class="icon">&#x2764;&#xfe0f;</span>Mindset</h3>
+                <p><strong>The Blueprint:</strong> In this section, you will use the Thought Tracker to consciously manage your thought patterns. By actively balancing challenging thoughts with affirmations, you'll build a resilient mindset to help shape your reality.</p>
             </div>
             <div class="card lifestyle">
-                <h3><span class="icon">&#x1F331;</span> Lifestyle</h3>
+                <h3><span class="icon">&#x1F331;</span>Lifestyle</h3>
                 <p><strong>The Assembly Line:</strong> This is where the work gets done. You'll build powerful daily habits and repeatable systems that take your intentions and turn them into tangible reality.</p>
             </div>
             <div class="card spirituality">
-                <h3><span class="icon">&#x2728;</span> Alignment</h3>
+                <h3><span class="icon">&#x2728;</span>Alignment</h3>
                 <p><strong>Quality Control & Innovation:</strong> This is the final stage of refinement. Through visualization, meditation, and gratitude, you'll ensure your creation is perfectly aligned with your highest self.</p>
             </div>
         </div>
@@ -593,7 +600,7 @@
                 // Handle errors if the server request fails
                 console.error('Error:', error);
                 alert('Something went wrong. Please try again later.');
-            });
+            })
         });
         
         document.getElementById('feedback-form').addEventListener('submit', function(event) {
@@ -652,6 +659,4 @@
     </script>
 </body>
 </html>
-
-
 
